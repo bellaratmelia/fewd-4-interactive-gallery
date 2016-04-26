@@ -33,23 +33,80 @@ input#user-search {
 }
 
 .gallery-container {
+	display: -webkit-flex;
 	display: flex;
-	flex-wrap: wrap;
 	flex-direction: column;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	max-width: 980px;
 	margin: 0 auto;
-	padding-top: 100px;
+	padding-top: 130px;
 	padding-bottom: 100px;
 }
 
 .gallery-item {
 	max-width: 200px;
-	margin-top: 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
-@media (min-width: 480px) {
+.gallery-container a img {
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.gallery-item a img:hover {
+	box-shadow: 2px 5px 40px silver;
+}
+
+#overlay {
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	display: none;
+}
+
+#overlay img {
+	width: 80%;
+	max-width: 800px;
+	display: block;
+	margin: 0 auto 10px;
+}
+
+#overlay p {
+	color: #fafafa;
+    max-width: 600px;
+    text-align: left;
+    margin: 10px auto;
+    padding: 0 10px;
+    line-height: 2rem;
+}
+
+#overlay .fa {
+	cursor: pointer;
+	color: white;
+	margin: 5px 25px;
+}
+
+#overlay #btn-close {
+	display: block;
+	margin-top: 10px;
+	margin-right: 10px;
+	text-align: right;
+}
+
+.hide {
+	display: none;
+	transition: all 0.5s;
+}
+
+@media (min-width: 460px) {
 	.gallery-container {
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -108,6 +165,10 @@ input#user-search {
 
 	.gallery-item:nth-child(4n) {
 		margin-right: 0;
+	}
+
+	#overlay img {
+		margin-top: 3%; 
 	}
 }
 

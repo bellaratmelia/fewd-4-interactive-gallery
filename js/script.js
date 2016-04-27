@@ -25,13 +25,13 @@ $overlay.append($nextBtn);
 $overlay.append($caption);
 $("body").append($overlay);
 
-//populate array of object with href and alt text
+// populate array of object with href, alt text, and type
 function populateArray() {
 	$(".gallery-item a").each(function() {
 
 		var itemObject = {	itemURL : $(this).attr("href"),
 							itemCaption : $(this).children("img").attr("alt"),
-							itemType : "image" }
+							itemType : "image" } // default type is "image"
 
 		// if it's a video, change the itemType to video
 		if ( $(this).hasClass("video") ) {
@@ -43,7 +43,7 @@ function populateArray() {
 	});
 }
 
-//function to find img position in array of object based on the img URL
+// function to find img position in array of object based on the img URL
 function findItemInArray(arrayOfObj, theURL) {
 	for (var i = 0; i < arrayOfObj.length; i++) {
 		if (arrayOfObj[i].itemURL === theURL) {
@@ -112,8 +112,7 @@ function checkKeyPress(e) {
     }
     else if (e.keyCode === 39) {
        // right arrow button
-       getNextItem
-      ();
+       getNextItem();
     }
 }
 
@@ -125,11 +124,12 @@ $(".gallery-item a").click(function() {
 	var itemLocation = $(this).attr("href");
 	counter = findItemInArray(itemArray, itemLocation);
 	
+	// call function to update overlay
 	updateOverlay();
 
 	// Show overlay
 	$overlay.fadeIn();
-	console.log(counter);
+	// console.log(counter);
 });
 
 // on close button click function
@@ -140,8 +140,7 @@ $closeBtn.click(function() {
 
 //on next button click function
 $nextBtn.click(function() {
-	getNextItem
-();
+	getNextItem();
 });
 
 //on previous button click function
@@ -152,23 +151,25 @@ $prevBtn.click(function() {
 
 // ---------------------------- SEARCH FILTER CODES ---------------------------- //
 
-// everytime user type in a character on the search box
-// find image whose alt DOES NOT contains those characters and hide them
+// everytime user type in a character on the search box,
+// hide all items first and then
+// find item whose alt contains those characters and then
+// show these items
 
-var $items = $(".gallery-item a"); // basically grab all elements that fits the requirements
+var $items = $(".gallery-item"); // basically grab all elements that fits the requirements
 
 $("#user-search").keyup(function() {
 	var term = $.trim($(this).val()).toLowerCase();
 
 		//hide everything first
-		$items.hide().filter(function() {
+		$items.hide().addClass("hide").filter(function() {
 			// get the caption text
-			var altText = $(this).children("img").attr("alt").toLowerCase();
+			var altText = $(this).children("a").children("img").attr("alt").toLowerCase();
 
 			// check whether if term contained inside the caption text
 	        return altText.indexOf(term) > -1;
 
-		}).fadeIn(); // show elements that fulfil the search criteria 
+		}).removeClass("hide").fadeIn(); // show elements that fulfil the search criteria 
 	// }
 });
 

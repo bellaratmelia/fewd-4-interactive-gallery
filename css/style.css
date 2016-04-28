@@ -72,11 +72,19 @@ input#user-search {
 	display: none;
 }
 
-#overlay img {
-	width: 100vw;
-    /*height: 60vh;*/
+#overlay img, #overlay iframe {
     margin: 0 auto 10px;
     display: block;
+}
+
+#overlay img {
+	width: 100vw;
+	height: auto;
+}
+
+#overlay iframe {
+	width: 100vw;
+  	height: 56.25vw;
 }
 
 #overlay p {
@@ -91,12 +99,11 @@ input#user-search {
 #overlay .fa {
 	cursor: pointer;
 	color: white;
-	margin: 5px 25px;
+	margin: 0 25px;
 }
 
 #overlay #btn-close {
 	display: block;
-	margin-top: 10px;
 	margin-right: 10px;
 	text-align: right;
 }
@@ -137,6 +144,11 @@ input#user-search {
 	#overlay img {
 		width: auto;
 	    height: 65vh;
+	}
+
+	#overlay iframe {
+		width: 65vw;
+    	height: 36.5625vw;
 	}
 }
 

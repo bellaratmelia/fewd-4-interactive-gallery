@@ -85,7 +85,7 @@ function updateOverlay() {
 
 		//animate the video a little bit
 		$vid.hide();
-		$vid.fadeIn();
+		$vid.fadeIn(500);
 
 	} else {
 		// if it's an image

@@ -162,14 +162,19 @@ $("#user-search").keyup(function() {
 	var term = $.trim($(this).val()).toLowerCase();
 
 		//hide everything first
-		$items.hide().addClass("hide").filter(function() {
+		// $items.hide().addClass("hide").filter(function() {
+		$items.each(function(){
 			// get the caption text
 			var altText = $(this).children("a").children("img").attr("alt").toLowerCase();
 
 			// check whether if term contained inside the caption text
-	        return altText.indexOf(term) > -1;
+	        if (altText.indexOf(term) > -1) {
+	        	$(this).removeClass("hide").fadeIn(); // show elements that fulfil the search criteria 
+	        } else {
+	        	$(this).fadeOut().addClass("hide");
+	        }
 
-		}).removeClass("hide").fadeIn(); // show elements that fulfil the search criteria 
+		})
 	// }
 });
 

@@ -73,10 +73,10 @@ input#user-search {
 }
 
 #overlay img {
-	width: 80%;
-	max-width: 800px;
-	display: block;
-	margin: 0 auto 10px;
+	width: 100vw;
+    /*height: 60vh;*/
+    margin: 0 auto 10px;
+    display: block;
 }
 
 #overlay p {
@@ -133,6 +133,11 @@ input#user-search {
 	.gallery-item:nth-child(3n+1) {
 		margin-left: 0;
 	}
+
+	#overlay img {
+		width: auto;
+	    height: 65vh;
+	}
 }
 
 
@@ -153,5 +158,6 @@ input#user-search {
 	#overlay img {
 		margin-top: 3%; 
 	}
+
 }
 

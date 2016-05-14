@@ -5,7 +5,7 @@
 body {
 	font-family: 'Inconsolata', 'Courier New', sans-serif;
 	color: #555;
-	font-size: 16pt;
+	font-size: 1.4em; /* = 16pt */
 }
 
 header.search-bar {
@@ -55,6 +55,7 @@ input#user-search {
 .gallery-container a img {
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+	width: 200px;
 }
 
 .gallery-item a img:hover {
@@ -77,23 +78,14 @@ input#user-search {
     display: block;
 }
 
-#overlay img {
-	width: 100vw;
-	height: auto;
-}
-
-#overlay iframe {
-	width: 100vw;
-  	height: 56.25vw;
-}
-
 #overlay p {
 	color: #fafafa;
     max-width: 600px;
     text-align: left;
     margin: 10px auto;
     padding: 0 10px;
-    line-height: 2rem;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
 }
 
 #overlay .fa {
@@ -141,15 +133,6 @@ input#user-search {
 		margin-left: 0;
 	}
 
-	#overlay img {
-		width: auto;
-	    height: 65vh;
-	}
-
-	#overlay iframe {
-		width: 65vw;
-    	height: 36.5625vw;
-	}
 }
 
 
@@ -171,5 +154,34 @@ input#user-search {
 		margin-top: 3%; 
 	}
 
+}
+
+/* for overlay */
+
+@media (orientation: landscape) {
+	/* if landscape, make sure the height is adjusted */
+
+	#overlay img {
+		height: 68vh;
+	}
+
+	#overlay iframe {
+		width: 65vw;
+    	height: 36.5625vw;
+	}
+}
+
+@media (orientation: portrait) {
+	/* if portrait, make sure the width is adjusted */
+
+	#overlay img {
+		width: 100vw;
+		height: auto;
+	}
+
+	#overlay iframe {
+		width: 100vw;
+	  	height: 56.25vw;
+	}
 }
 

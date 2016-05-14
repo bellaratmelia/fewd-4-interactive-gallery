@@ -31,11 +31,11 @@ function populateArray() {
 
 		var itemObject = {	itemURL : $(this).attr("href"),
 							itemCaption : $(this).children("img").attr("alt"),
-							itemType : "image" } // default type is "image"
+							itemType : "image" }; // default type is "image"
 
 		// if it's a video, change the itemType to video
 		if ( $(this).hasClass("video") ) {
-			itemObject.itemType = "video"
+			itemObject.itemType = "video";
 		} 
 
 		itemArray.push(itemObject);
@@ -174,7 +174,7 @@ $("#user-search").keyup(function() {
 	        	$(this).fadeOut().addClass("hide");
 	        }
 
-		})
+		});
 	// }
 });
 

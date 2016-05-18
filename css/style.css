@@ -169,7 +169,26 @@ input#user-search {
 		width: 65vw;
     	height: 36.5625vw;
 	}
+
+	
 }
+
+@media (orientation: landscape) and (min-width: 800px) {
+	
+	/* show next and previous buttons on the side of the image on landscape mode only */
+	#btn-prev {
+		left: 7vw;
+	    top: 45vh;
+	    position: absolute;
+	}
+
+	#btn-next {
+		right: 7vw;
+	    top: 45vh;
+	    position: absolute;
+	}
+}
+
 
 @media (orientation: portrait) {
 	/* if portrait, make sure the width is adjusted */

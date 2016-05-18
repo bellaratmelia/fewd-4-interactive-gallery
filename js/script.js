@@ -7,7 +7,7 @@ var itemArray = [];
 // Declare global current item counter
 var counter = 0;
 
-// Declare overlay and it's components
+// Declare overlay and its components
 var $overlay = $('<div id="overlay"></div>');
 var $img = $("<img>");
 var $vid = $('<iframe src=""></iframe>');
@@ -117,7 +117,7 @@ function checkKeyPress(e) {
 }
 
 // on gallery item click function
-$(".gallery-item a").click(function() {
+$(".gallery-item a").click(function(event) {
 	event.preventDefault();
 
 	//find image position in array, update the counter
